@@ -180,16 +180,6 @@ nav a:hover,
   color: #fff;
 }
 
-.categories button.active::after {
-  content: "";
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  margin-left: 7px;
-  background: var(--accent);
-  vertical-align: 2px;
-}
-
 .scroll-guide {
   display: block;
   margin-top: 2px;
