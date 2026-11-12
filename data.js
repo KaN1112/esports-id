@@ -15,8 +15,8 @@ const sourceCategories = [
 ].map(([id, label]) => ({ id, label }));
 
 export const categories = [
+  { id: "all", label: "一覧" },
   sourceCategories[0],
-  { id: "all", label: "すべて" },
   ...sourceCategories.slice(1)
 ];
 
@@ -85,3 +85,4 @@ export const characters = sourceCategories.flatMap((category) => {
 });
 
 export const insertCharacters = Array.from("〆々乂メ彡亗★☆♡ツ！﹗ǃ");
+
