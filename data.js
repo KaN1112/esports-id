@@ -19,6 +19,8 @@ export const categories = [
   sourceCategories[0],
   ...sourceCategories.slice(1)
 ];
+
+export const insertCharacters = Array.from("〆々乂メ彡亗★☆♡ツ！﹗ǃ");
 const characterGroups = {
   popular: [
     { value: "〆々乂么メ彡ツシ亗王神卍ゞ・×★☆♡♥♛♚☯", name: "人気のゲームID記号", keywords: ["ゲーム", "ID", "Fortnite"] }
@@ -82,5 +84,4 @@ export const characters = sourceCategories.flatMap((category) => {
     return true;
   });
 });
-
 
