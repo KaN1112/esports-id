@@ -216,7 +216,7 @@ function updateIdMaker(message = "") {
   elements.idLength.textContent = `${charactersInId.length}文字`;
   elements.idCodePoints.textContent = charactersInId.length
     ? charactersInId.map((character) => `U+${character.codePointAt(0).toString(16).toUpperCase()}`).join(" ")
-    : "—";
+    : "";
   elements.copyId.disabled = !value;
   elements.removeCharacter.disabled = !value;
   elements.clearId.disabled = !value;
