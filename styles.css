@@ -505,11 +505,16 @@ nav a:hover,
   text-underline-offset: 3px;
 }
 
-.maker-actions .primary-button {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: #fff;
+.maker-actions .btn-radius-solid {
+  border: 1px solid #ccc;
+  background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
+  box-shadow: inset 1px 1px 1px #fff;
+  color: var(--dark);
   font-weight: 700;
+}
+
+.maker-actions .btn-radius-solid:hover:not(:disabled) {
+  background: linear-gradient(to top, #fdfbfb 0%, #ebedee 100%);
 }
 
 .maker-actions button:disabled {
@@ -761,7 +766,7 @@ footer small {
     align-items: stretch;
   }
 
-  .maker-actions .primary-button {
+  .maker-actions .btn-radius-solid {
     flex: 1 1 150px;
   }
 
