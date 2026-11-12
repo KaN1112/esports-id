@@ -30,25 +30,14 @@
     </header>
 
     <main id="top">
-      <section class="intro" aria-labelledby="page-title">
-        <div>
-          <p class="intro-label">Fortnite・Epic ID向け</p>
-          <h1 id="page-title">ゲームIDに使いたい<br><span>特殊文字をすぐコピー</span></h1>
-        </div>
-        <p>文字を探して押すだけでコピーできます。ほかのゲームやサービスでも使える可能性がありますが、利用可否は各サービスの名前変更画面で確認してください。</p>
-      </section>
-
-      <section id="characters" class="character-section" aria-labelledby="characters-title">
-        <div class="section-heading">
-          <div>
-            <h2 id="characters-title">特殊文字一覧</h2>
-            <p>文字を選ぶと、そのままクリップボードへコピーします。</p>
-          </div>
-          <output id="result-count" aria-live="polite">0文字</output>
+      <section id="characters" class="tool-section" aria-labelledby="page-title">
+        <div class="tool-intro">
+          <h1 id="page-title">特殊文字をコピー</h1>
+          <p>Fortnite・Epic IDなどで使いたい文字を、検索またはカテゴリから探せます。</p>
         </div>
 
         <div class="search-row">
-          <label for="search">文字・名前・Unicode番号から検索</label>
+          <label for="search">特殊文字を検索</label>
           <div class="search-control">
             <input id="search" type="search" inputmode="search" autocomplete="off" placeholder="例：星、びっくり、U+2605">
             <button id="clear-search" type="button" hidden>クリア</button>
@@ -60,23 +49,29 @@
           <span class="scroll-guide" aria-hidden="true">横にスクロールできます →</span>
         </div>
 
-        <p class="usage-note"><strong>ご確認ください</strong> 掲載文字は候補です。Epic IDで使用できるかは、Epic Gamesの最新仕様と実際の変更画面で確認してください。</p>
+        <div class="list-heading">
+          <h2>文字一覧</h2>
+          <output id="result-count" aria-live="polite">0文字</output>
+        </div>
+
+        <p class="usage-note">掲載文字は候補です。Epic IDで使用できるかは、Epic Gamesの最新仕様と実際の変更画面で確認してください。</p>
 
         <div id="character-grid" class="character-grid" aria-live="polite"></div>
         <p id="empty-state" class="empty-state" hidden>条件に合う文字が見つかりませんでした。検索語やカテゴリを変えてお試しください。</p>
       </section>
 
       <section id="saved" class="saved-section" aria-labelledby="saved-title">
+        <h2 id="saved-title">保存した文字</h2>
         <div class="saved-block">
           <div class="subheading-row">
-            <h2 id="saved-title">お気に入り <small id="favorite-count">0</small></h2>
+            <h3>お気に入り <small id="favorite-count">0</small></h3>
             <button id="clear-favorites" class="text-button" type="button">すべて解除</button>
           </div>
           <div id="favorites" class="compact-list"><p>よく使う文字の☆を押すと、ここに保存されます。</p></div>
         </div>
         <div class="saved-block">
           <div class="subheading-row">
-            <h2>コピー履歴 <small id="history-count">0</small></h2>
+            <h3>コピー履歴 <small id="history-count">0</small></h3>
             <button id="clear-history" class="text-button" type="button">すべて削除</button>
           </div>
           <div id="history" class="compact-list"><p>コピーした文字が新しい順に表示されます。</p></div>
@@ -85,10 +80,8 @@
 
       <section id="maker" class="maker-section" aria-labelledby="maker-title">
         <div class="section-heading">
-          <div>
-            <h2 id="maker-title">Epic IDの候補を作る</h2>
-            <p>名前と特殊文字を組み合わせて、ゲーム内で試す候補を作成できます。</p>
-          </div>
+          <h2 id="maker-title">Epic IDの候補を作る</h2>
+          <p>名前を入力し、必要な位置へ特殊文字を追加してください。</p>
         </div>
         <div class="maker-layout">
           <div class="maker-main">
@@ -114,10 +107,7 @@
 
       <section class="guide-section" aria-labelledby="guide-title">
         <div class="section-heading">
-          <div>
-            <h2 id="guide-title">使う前に確認すること</h2>
-            <p>ゲームごとに使える文字や名前の条件が異なります。</p>
-          </div>
+          <h2 id="guide-title">使う前に確認すること</h2>
         </div>
         <div class="guide-grid">
           <article>
@@ -134,10 +124,7 @@
 
       <section id="contact" class="contact-section" aria-labelledby="contact-title">
         <div class="section-heading">
-          <div>
-            <h2 id="contact-title">お問い合わせ・文字追加申請</h2>
-            <p>不具合の連絡と、新しく掲載してほしい文字の申請はこちらから送信できます。</p>
-          </div>
+          <h2 id="contact-title">お問い合わせ</h2>
         </div>
         <div class="form-links">
           <a href="https://formspree.io/f/xnppdegq" target="_blank" rel="noopener noreferrer"><span>お問い合わせ</span><small>不具合やサイトについて連絡する</small></a>
@@ -156,3 +143,4 @@
     <script type="module" src="/app.js"></script>
   </body>
 </html>
+
