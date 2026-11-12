@@ -79,22 +79,29 @@
 
       <section id="maker" class="maker-section" aria-labelledby="maker-title">
         <div class="section-heading">
-          <h2 id="maker-title">Epic IDの候補を作る</h2>
-          <p>名前を入力して、作成中のIDを確認できます。</p>
+          <h2 id="maker-title">Epic IDを作成</h2>
+          <p>名前に特殊文字を組み合わせて、IDの候補を作れます。</p>
         </div>
         <div class="maker-layout">
           <div class="maker-main">
-            <span class="field-label">作成中のID</span>
-            <div id="id-preview" class="id-preview" aria-live="polite"><span>ここにIDが表示されます</span></div>
             <label for="id-input">Epic ID入力欄</label>
-            <input id="id-input" type="text" maxlength="40" autocomplete="off" placeholder="ここに名前を入力">
-            <div class="id-meta"><span id="id-length">0文字</span><span id="id-codepoints">—</span></div>
+            <input id="id-input" type="text" maxlength="40" autocomplete="off" placeholder="例：KaN">
+            <div class="id-meta"><span id="id-codepoints">—</span><span id="id-length">0文字</span></div>
+            <span class="field-label preview-label">IDプレビュー</span>
+            <div id="id-preview" class="id-preview" aria-live="polite"><span>入力したIDがここに表示されます</span></div>
             <div class="maker-actions">
-              <button id="copy-id" class="primary-button" type="button" disabled>作成したIDをコピー</button>
-              <button id="remove-character" type="button" disabled>1文字削除</button>
-              <button id="clear-id" type="button" disabled>全消去</button>
+              <button id="copy-id" class="primary-button" type="button" disabled>IDをコピー</button>
+              <div class="secondary-actions">
+                <button id="remove-character" type="button" disabled>1文字削除</button>
+                <button id="clear-id" type="button" disabled>全消去</button>
+              </div>
             </div>
             <p id="maker-feedback" class="maker-feedback" aria-live="polite">入力したIDを確認してコピーできます。</p>
+          </div>
+          <div class="insert-panel">
+            <h3>特殊文字を追加</h3>
+            <p>文字を押すと、入力欄のカーソル位置に追加します。</p>
+            <div id="insert-characters" class="insert-list"></div>
           </div>
         </div>
       </section>
