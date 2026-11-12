@@ -509,7 +509,7 @@ nav a:hover,
   border: 1px solid #ccc;
   background: linear-gradient(to bottom, #fdfbfb 0%, #ebedee 100%);
   box-shadow: inset 1px 1px 1px #fff;
-  color: var(--dark);
+  color: #000;
   font-weight: 700;
 }
 
