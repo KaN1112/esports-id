@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f05a24">
+    <meta name="description" content="FortniteやEpic GamesのID候補に使いたい特殊文字を、カテゴリやキーワードから探してコピーできる無料ツールです。">
+    <meta property="og:title" content="ゲームID用特殊文字コピーサイト">
+    <meta property="og:description" content="ゲームID向けの特殊文字を検索して、ワンクリックでコピーできます。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://id-chars.vercel.app/">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="https://id-chars.vercel.app/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <title>ゲームID用特殊文字コピーサイト｜Fortnite・Epic ID向け</title>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"WebApplication","name":"ゲームID用特殊文字コピーサイト","url":"https://id-chars.vercel.app/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","description":"FortniteやEpic GamesのID候補に使いたい特殊文字を検索してコピーできるツールです。"}
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-name" href="#top">ゲームID用特殊文字コピーサイト</a>
+      <nav aria-label="ページ内メニュー">
+        <a href="#characters">文字一覧</a>
+        <a href="#maker">ID作成</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="intro-label">Fortnite・Epic ID向け</p>
+          <h1 id="page-title">ゲームIDに使いたい<br><span>特殊文字をすぐコピー</span></h1>
+        </div>
+        <p>文字を探して押すだけでコピーできます。ほかのゲームやサービスでも使える可能性がありますが、利用可否は各サービスの名前変更画面で確認してください。</p>
+      </section>
+
+      <section id="characters" class="character-section" aria-labelledby="characters-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="characters-title">特殊文字一覧</h2>
+            <p>文字を選ぶと、そのままクリップボードへコピーします。</p>
+          </div>
+          <output id="result-count" aria-live="polite">0文字</output>
+        </div>
+
+        <div class="search-row">
+          <label for="search">文字・名前・Unicode番号から検索</label>
+          <div class="search-control">
+            <input id="search" type="search" inputmode="search" autocomplete="off" placeholder="例：星、びっくり、U+2605">
+            <button id="clear-search" type="button" hidden>クリア</button>
+          </div>
+        </div>
+
+        <div class="category-area">
+          <div id="categories" class="categories" role="tablist" aria-label="特殊文字のカテゴリ"></div>
+          <span class="scroll-guide" aria-hidden="true">横にスクロールできます →</span>
+        </div>
+
+        <p class="usage-note"><strong>ご確認ください</strong> 掲載文字は候補です。Epic IDで使用できるかは、Epic Gamesの最新仕様と実際の変更画面で確認してください。</p>
+
+        <div id="character-grid" class="character-grid" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state" hidden>条件に合う文字が見つかりませんでした。検索語やカテゴリを変えてお試しください。</p>
+      </section>
+
+      <section id="saved" class="saved-section" aria-labelledby="saved-title">
+        <div class="saved-block">
+          <div class="subheading-row">
+            <h2 id="saved-title">お気に入り <small id="favorite-count">0</small></h2>
+            <button id="clear-favorites" class="text-button" type="button">すべて解除</button>
+          </div>
+          <div id="favorites" class="compact-list"><p>よく使う文字の☆を押すと、ここに保存されます。</p></div>
+        </div>
+        <div class="saved-block">
+          <div class="subheading-row">
+            <h2>コピー履歴 <small id="history-count">0</small></h2>
+            <button id="clear-history" class="text-button" type="button">すべて削除</button>
+          </div>
+          <div id="history" class="compact-list"><p>コピーした文字が新しい順に表示されます。</p></div>
+        </div>
+      </section>
+
+      <section id="maker" class="maker-section" aria-labelledby="maker-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="maker-title">Epic IDの候補を作る</h2>
+            <p>名前と特殊文字を組み合わせて、ゲーム内で試す候補を作成できます。</p>
+          </div>
+        </div>
+        <div class="maker-layout">
+          <div class="maker-main">
+            <span class="field-label">作成中のID</span>
+            <div id="id-preview" class="id-preview" aria-live="polite"><span>ここにIDが表示されます</span></div>
+            <label for="id-input">Epic ID入力欄</label>
+            <input id="id-input" type="text" maxlength="40" autocomplete="off" placeholder="ここに名前を入力">
+            <div class="id-meta"><span id="id-length">0文字</span><span id="id-codepoints">—</span></div>
+            <div class="maker-actions">
+              <button id="copy-id" class="primary-button" type="button" disabled>作成したIDをコピー</button>
+              <button id="remove-character" type="button" disabled>1文字削除</button>
+              <button id="clear-id" type="button" disabled>全消去</button>
+            </div>
+            <p id="maker-feedback" class="maker-feedback" aria-live="polite">入力欄を選択してから、文字を追加できます。</p>
+          </div>
+          <div class="insert-panel">
+            <h3>カーソル位置に追加</h3>
+            <p>文字を押すと入力欄の選択位置へ追加します。</p>
+            <div id="insert-characters" class="insert-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-section" aria-labelledby="guide-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="guide-title">使う前に確認すること</h2>
+            <p>ゲームごとに使える文字や名前の条件が異なります。</p>
+          </div>
+        </div>
+        <div class="guide-grid">
+          <article>
+            <h3>Fortnite・Epic Games</h3>
+            <p>掲載している文字が、すべてEpic IDで使用できるとは限りません。表示名の条件や変更制限は、Epic Gamesの最新案内を優先してください。</p>
+          </article>
+          <article>
+            <h3>ほかのゲーム</h3>
+            <p>VALORANT、Apex Legends、Minecraftなどでも使える可能性があります。文字制限はゲームごとに異なるため、それぞれの名前変更画面で確認してください。</p>
+          </article>
+        </div>
+        <p class="legal-note">見た目が似ていてもUnicode上は別の文字です。文字数表示はUnicode文字単位の目安であり、Epic Gamesの公式判定ではありません。<br>規約の回避には使用せず、最新の公式情報をご確認ください。</p>
+      </section>
+
+      <section id="contact" class="contact-section" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <div>
+            <h2 id="contact-title">お問い合わせ・文字追加申請</h2>
+            <p>不具合の連絡と、新しく掲載してほしい文字の申請はこちらから送信できます。</p>
+          </div>
+        </div>
+        <div class="form-links">
+          <a href="https://formspree.io/f/xnppdegq" target="_blank" rel="noopener noreferrer"><span>お問い合わせ</span><small>不具合やサイトについて連絡する</small></a>
+          <a href="https://formspree.io/f/mjyywnak" target="_blank" rel="noopener noreferrer"><span>文字追加申請</span><small>掲載してほしい文字を申請する</small></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#top">ゲームID用特殊文字コピーサイト</a>
+      <p>Fortnite・Epic Gamesの公式サービスではありません。</p>
+      <small>© 2026 ゲームID用特殊文字コピーサイト</small>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
