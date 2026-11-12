@@ -1,4 +1,4 @@
-import { categories, characters, insertCharacters } from "/data.js";
+import { categories, characters } from "/data.js";
 
 const elements = {
   categories: document.querySelector("#categories"),
@@ -21,7 +21,6 @@ const elements = {
   removeCharacter: document.querySelector("#remove-character"),
   clearId: document.querySelector("#clear-id"),
   feedback: document.querySelector("#maker-feedback"),
-  insertCharacters: document.querySelector("#insert-characters"),
   toast: document.querySelector("#toast")
 };
 
@@ -225,30 +224,6 @@ function updateIdMaker(message = "") {
   }
 }
 
-function insertAtCursor(character) {
-  const input = elements.idInput;
-  const start = input.selectionStart ?? input.value.length;
-  const end = input.selectionEnd ?? start;
-  input.value = `${input.value.slice(0, start)}${character}${input.value.slice(end)}`.slice(0, input.maxLength);
-  const nextPosition = Math.min(start + character.length, input.value.length);
-  input.focus();
-  input.setSelectionRange(nextPosition, nextPosition);
-  updateIdMaker(`${character} を追加しました`);
-}
-
-function renderInsertCharacters() {
-  const fragment = document.createDocumentFragment();
-  insertCharacters.forEach((character) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = character;
-    button.setAttribute("aria-label", `${character}をカーソル位置に追加`);
-    button.addEventListener("click", () => insertAtCursor(character));
-    fragment.append(button);
-  });
-  elements.insertCharacters.replaceChildren(fragment);
-}
-
 elements.search.addEventListener("input", () => {
   elements.clearSearch.hidden = !elements.search.value;
   renderCharacters();
@@ -293,6 +268,5 @@ renderCategories();
 renderCharacters();
 renderFavorites();
 renderHistory();
-renderInsertCharacters();
 updateIdMaker();
 
